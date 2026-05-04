@@ -1,5 +1,7 @@
 # Claude to Codex Migration
 
+> Pre-release: this package is parked while the migration harness and article are being finished. Do not install it as an active Codex marketplace yet.
+
 Public-safe Codex plugin package for migrating a Claude Code setup into Codex primitives:
 
 - `AGENTS.md` operating rules
@@ -13,7 +15,7 @@ The package intentionally contains process guidance, generic checks, and public 
 
 ## Install
 
-Add this repository as a Codex plugin marketplace:
+After the package is marked ready, add this repository as a Codex plugin marketplace:
 
 ```bash
 codex plugin marketplace add blakecrosley/claude-to-codex-migration

@@ -13,13 +13,13 @@ The package intentionally contains process guidance, generic checks, and public 
 
 ## Install
 
-After publishing this folder as a GitHub repository, add it as a Codex plugin marketplace:
+Add this repository as a Codex plugin marketplace:
 
 ```bash
 codex plugin marketplace add blakecrosley/claude-to-codex-migration
 ```
 
-Then install or enable the plugin from the Codex plugin surface and start a fresh Codex session. Until plugin installation is verified in your runtime, use the skill directly from a user or repo skill folder:
+Then install or enable the plugin from the Codex plugin surface and start a fresh Codex session. Marketplace add makes the plugin catalog available; runtime use still requires the plugin to be enabled and loaded. Until plugin installation is verified in your runtime, use the skill directly from a user or repo skill folder:
 
 ```text
 $HOME/.agents/skills/claude-to-codex-migration/

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Claude to Codex Migration"
+  short_description: "Migrate Claude Code patterns to Codex"
+  brand_color: "#2563EB"
+  default_prompt: "Use $claude-to-codex-migration to map this Claude Code setup into Codex AGENTS.md, profiles, skills, hooks, MCP, and a private migration checklist."
+
+policy:
+  allow_implicit_invocation: true

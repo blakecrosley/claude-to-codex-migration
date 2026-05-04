@@ -1,0 +1,39 @@
+{
+  "name": "claude-to-codex-migration",
+  "version": "0.2.0",
+  "description": "Public-safe staged Claude Code to Codex migration workflow for AGENTS.md, profiles, skills, hooks, and MCP.",
+  "author": {
+    "name": "Blake Crosley",
+    "url": "https://blakecrosley.com"
+  },
+  "homepage": "https://blakecrosley.com/guides/codex",
+  "repository": "https://github.com/blakecrosley/claude-to-codex-migration",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "claude-code",
+    "migration",
+    "agents",
+    "skills"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Claude to Codex Migration",
+    "shortDescription": "Move Claude Code harness patterns into Codex.",
+    "longDescription": "A public-safe staged workflow for translating Claude Code harness surfaces into Codex AGENTS.md policy, profiles, reusable skills, deterministic hooks, and MCP/tooling decisions without exposing private prompts or proprietary implementation details.",
+    "developerName": "Blake Crosley",
+    "category": "Productivity",
+    "capabilities": [
+      "Write",
+      "Review",
+      "Plan"
+    ],
+    "websiteURL": "https://blakecrosley.com",
+    "defaultPrompt": [
+      "Map this Claude Code setup into Codex.",
+      "Audit my Codex harness migration plan.",
+      "Create a public-safe migration checklist."
+    ],
+    "brandColor": "#2563EB"
+  }
+}

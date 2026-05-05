@@ -29,9 +29,10 @@ For each component:
 2. Identify the Codex primitive that should own that job.
 3. Choose an inactive or explicit-only state.
 4. Run one real task that should benefit from it.
-5. Record evidence: prompt, task type, expected behavior, actual behavior, failure mode, and next decision.
-6. Promote only if it improves outcomes without adding confusing routing or false positives.
-7. Feed the lesson back into the migration skill and private monitor.
+5. For hooks, profiles, routers, and other always-on surfaces, run a watch pass after real use. Summarize counts, categories, false positives, privacy exposure, and bypass behavior without copying raw private logs into public artifacts.
+6. Record evidence: prompt, task type, expected behavior, actual behavior, failure mode, watch result, and next decision.
+7. Promote only if it improves outcomes without adding confusing routing or false positives.
+8. Feed the lesson back into the migration skill and private monitor.
 
 ## Promotion Gates
 
@@ -42,6 +43,8 @@ Promote from `packaged` to `explicit-only` when the files validate and do not ex
 Promote from `explicit-only` to `pilot` when a real task shows value. Pilot does not require implicit activation; a skill can remain explicit-only while being piloted for one repo or workflow.
 
 Promote from `pilot` to `shadow` or `enforced` only when failures are understandable and the bypass path is clear.
+
+Do not promote a hook from `pilot` or `shadow` on setup tests alone. Require at least one real-use watch pass that shows the hook is firing in the intended situations, passing ordinary work, logging only safe aggregate telemetry, and failing with a reason the user can act on.
 
 Retire anything that needs too much explanation, duplicates a stronger Codex primitive, or makes routing less predictable.
 

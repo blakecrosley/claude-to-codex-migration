@@ -115,3 +115,5 @@ Read `references/doctrine-migration.md` when migrating philosophy, quality doctr
 Read `references/shadow-hooks.md` before creating or enabling Codex hook candidates.
 
 Read `references/final-verification-summary.md` before testing or promoting final-answer verification gates.
+
+Read `references/source-research.md` before porting browser automation, web research, source-verification MCP, or private browsing tools.

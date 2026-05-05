@@ -48,3 +48,5 @@ Keep this candidate in `shadow` until it has reviewed at least three real comple
 - one routine engineering task
 
 Do not promote it to a hook if it mostly produces ceremonial wording. It should catch overclaims, missing verification, hidden uncertainty, or public/private boundary mistakes.
+
+After the first shadow reviews, prefer folding minimal deterministic checks into an existing quality Stop hook instead of adding a second final-summary Stop hook. A narrow hollow-completion block can be useful; a parser that forces every final answer into a rigid template is not. Create a separate enforcing final-verification hook only if real completions show repeated gaps that the existing Stop gate cannot catch without noisy, formulaic output.

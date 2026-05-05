@@ -64,10 +64,10 @@ $claude-to-codex-migration:claude-to-codex-migration
 From the repository root:
 
 ```bash
-python3 /path/to/quick_validate.py plugins/claude-to-codex-migration/skills/claude-to-codex-migration
-python3 -m json.tool .agents/plugins/marketplace.json
-python3 -m json.tool plugins/claude-to-codex-migration/.codex-plugin/plugin.json
+python3 scripts/validate_package.py
 ```
+
+The package validator checks the marketplace JSON, plugin manifest, skill frontmatter, required references, citation-checker syntax, default installation policy, absence of active hooks/MCP manifests, and obvious private-path or secret-fixture leaks.
 
 For the citation checker:
 

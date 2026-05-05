@@ -31,6 +31,25 @@ PRIVATE_PATTERNS = (
     ".codex/" + "hook-" + "logs",
     "mcp_" + "server",
 )
+PRODUCTION_GATE_PHRASES = {
+    SKILL / "SKILL.md": (
+        "verify the deployed user path",
+        "sitemap inclusion",
+        "llms-full.txt",
+        "production or intended user path",
+    ),
+    SKILL / "references" / "staged-rollout.md": (
+        "production/user-path check",
+        "cache-busting URL",
+        "stale CDN/cache response",
+        "canonical production URL",
+    ),
+    ROOT / "README.md": (
+        "production/user path",
+        "canonical URL",
+        "AI-discovery surfaces",
+    ),
+}
 
 
 def fail(message: str, failures: list[str]) -> None:
@@ -128,6 +147,20 @@ def check_skill(failures: list[str]) -> None:
         fail(f"citation checker does not compile: {exc.msg}", failures)
 
 
+def check_production_publication_gate(failures: list[str]) -> None:
+    for path, phrases in PRODUCTION_GATE_PHRASES.items():
+        if not path.exists():
+            fail(f"production publication gate source missing: {path.relative_to(ROOT)}", failures)
+            continue
+        text = path.read_text(encoding="utf-8")
+        for phrase in phrases:
+            if phrase not in text:
+                fail(
+                    f"{path.relative_to(ROOT)} missing production publication gate phrase: {phrase}",
+                    failures,
+                )
+
+
 def check_unwanted_files(failures: list[str]) -> None:
     unwanted_names = {"__pycache__", ".DS_Store", ".env", ".mcp.json", "hooks.json"}
     for path in ROOT.rglob("*"):
@@ -162,6 +195,7 @@ def main() -> int:
     check_marketplace(failures)
     check_plugin_manifest(failures)
     check_skill(failures)
+    check_production_publication_gate(failures)
     check_unwanted_files(failures)
     check_private_leaks(failures)
 

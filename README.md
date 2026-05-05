@@ -58,6 +58,7 @@ $claude-to-codex-migration:claude-to-codex-migration
 5. Package stable workflows as plugins only after validation.
 6. Keep hooks in shadow until they pass on real files and fail on known-bad examples.
 7. Publish only sanitized patterns and verified tool behavior.
+8. For public articles or guides, verify the production/user path before calling the work live: canonical URL, rendered metadata, structured data, sitemap, and `llms-full.txt` or equivalent AI-discovery surfaces. If the canonical URL is stale while a cache-busting URL is fresh, purge only the affected public URLs through the existing deployment path.
 
 ## Verification
 
@@ -67,7 +68,7 @@ From the repository root:
 python3 scripts/validate_package.py
 ```
 
-The package validator checks the marketplace JSON, plugin manifest, skill frontmatter, required references, citation-checker syntax, default installation policy, absence of active hooks/MCP manifests, and obvious private-path or secret-fixture leaks.
+The package validator checks the marketplace JSON, plugin manifest, skill frontmatter, required references, citation-checker syntax, production publication gate, default installation policy, absence of active hooks/MCP manifests, and obvious private-path or secret-fixture leaks.
 
 For the citation checker:
 

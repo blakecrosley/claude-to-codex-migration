@@ -34,6 +34,8 @@ For each component:
 7. Promote only if it improves outcomes without adding confusing routing or false positives.
 8. Feed the lesson back into the migration skill and private monitor.
 
+For public articles or guides, add a production/user-path check before calling the loop done. Verify the canonical URL, expected rendered metadata, structured data, sitemap inclusion, and `llms-full.txt` or equivalent AI-discovery surface. If the app serves the new page only behind a cache-busting URL, treat the canonical path as failed until the stale CDN/cache response is purged through the existing deployment path.
+
 ## Promotion Gates
 
 Promote from `parked` to `packaged` when the Codex target is obvious.
@@ -54,4 +56,5 @@ The article should learn from the migration, but only at the pattern level:
 
 - Good: "we staged hooks as non-blocking checks before enforcing them."
 - Good: "we moved durable policy into AGENTS.md and kept task workflows as skills."
+- Good: "we verified the canonical production URL and discovery surfaces before calling the article live."
 - Avoid: exact private prompt text, raw inventory rows, hook source, local script names, private tool names, or proprietary writing workflow details.

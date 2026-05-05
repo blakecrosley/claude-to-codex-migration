@@ -40,6 +40,7 @@ For public artifacts, describe the pattern and the acceptance criteria. Do not d
 6. Validate current Codex behavior against local CLI help and official OpenAI Codex docs before publishing technical claims.
 7. Record a private migration monitor with completed work, remaining gaps, activation state, evidence, and public/private boundaries.
 8. If writing publicly, publish sanitized aggregate findings and cite official docs for Codex behavior.
+9. If the migration produces a public article, verify the deployed user path before calling it live: canonical URL, rendered metadata, structured data, sitemap inclusion, and `llms-full.txt` or the project's equivalent AI-discovery surface. If a CDN or cache preserves a stale response, record the sanitized failure mode and use the existing secret-managed purge/deploy path.
 
 ## Artifact Map
 
@@ -101,6 +102,7 @@ Before calling a migration done:
 - The active migration skill is present in a user/repo skill location or the plugin-installed copy is visible after restart; otherwise report runtime discovery as unverified.
 - Hooks, if added, are deterministic and have a manual bypass or documented failure behavior.
 - Public-facing content has citations for tool behavior and avoids raw private inventory.
+- Public-facing content is verified on the production or intended user path when publication is part of the work; local rendering alone is not enough to claim the live page works.
 - Final responses state what remains unverified when the work touches public content, harness behavior, or staged activation.
 - The user can tell what changed, what remains, and what is safe to publish.
 

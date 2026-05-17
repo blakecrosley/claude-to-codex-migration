@@ -10,6 +10,10 @@ A plugin folder on disk is not the same thing as an installed runtime plugin. Ve
 
 When the plugin-installed skill loads, Codex may expose it with the plugin namespace, for example `claude-to-codex-migration:claude-to-codex-migration`, while the direct user skill remains `claude-to-codex-migration`.
 
+For local install tests, keep the path contract precise. `codex plugin marketplace add` accepts the marketplace root or repository, but app-server `plugin/read` and `plugin/install` calls use the marketplace JSON file path. Verify install state with `plugin/list`, bundled skill discovery with `skills/list`, and actual runtime availability with a fresh `codex exec` probe.
+
+If both a repo-local marketplace and a public-package marketplace expose the same plugin during testing, uninstall the duplicate and record which marketplace remains the intended pilot. A duplicate namespaced skill is not a clean release signal.
+
 Add executable scripts only when the operation is deterministic, inspectable, and safe to run against another user's configuration. Avoid scripts that read broad home-directory state, scrape private prompts, or publish raw inventories.
 
 Keep the public plugin separate from the private harness. The public plugin can carry the method, staging model, and safe examples. A private plugin or private skill folder should carry real internal workflows, private prompts, exact hook logic, and sensitive local integration details.

@@ -6,10 +6,7 @@
   "plugins": [
     {
       "name": "claude-to-codex-migration",
-      "source": {
-        "source": "local",
-        "path": "./plugins/claude-to-codex-migration"
-      },
+      "source": "./plugins/claude-to-codex-migration",
       "policy": {
         "installation": "AVAILABLE",
         "authentication": "ON_INSTALL"

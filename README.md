@@ -1,6 +1,6 @@
 # Claude to Codex Migration
 
-> Pre-release: this package is parked while the migration harness and article are being finished. Do not install it as an active Codex marketplace yet.
+> Pre-release: this package is parked while the migration harness and article are being finished. Do not install it as an active Codex marketplace yet unless you are intentionally running a local install pilot.
 
 Public-safe Codex plugin package for migrating a Claude Code setup into Codex primitives:
 
@@ -28,6 +28,8 @@ $HOME/.agents/skills/claude-to-codex-migration/
 ```
 
 Codex skills are the authoring format for reusable workflows. Plugins are the installable distribution unit for sharing those workflows.
+
+The marketplace entry uses a relative source path resolved from the marketplace root. For lower-level install probes, use the marketplace JSON file path for plugin read/install calls, then verify the installed plugin with plugin listing, skill listing, and a fresh Codex session.
 
 Direct user/repo skill invocation uses:
 

@@ -21,7 +21,7 @@ REQUIRED_REFERENCES = {
     "staged-rollout.md",
 }
 PRIVATE_PATTERNS = (
-    "/Users/" + "blakecrosley",
+    "/" + "Users" + "/",
     "Yu" + "rei",
     "yu" + "rei",
     "HEAR" + "TED",
@@ -112,7 +112,16 @@ def check_marketplace(failures: list[str]) -> None:
     if not entry:
         fail("marketplace missing claude-to-codex-migration entry", failures)
         return
-    if entry.get("source", {}).get("path") != "./plugins/claude-to-codex-migration":
+    source = entry.get("source")
+    if isinstance(source, str):
+        source_path = source
+    elif isinstance(source, dict):
+        source_path = source.get("path")
+        if "source" in source:
+            fail("local marketplace source must not include legacy source.source wrapper", failures)
+    else:
+        source_path = None
+    if source_path != "./plugins/claude-to-codex-migration":
         fail("marketplace plugin source path must be ./plugins/claude-to-codex-migration", failures)
     if entry.get("policy", {}).get("installation") != "AVAILABLE":
         fail("marketplace installation policy must remain AVAILABLE before launch", failures)
